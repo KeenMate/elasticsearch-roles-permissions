@@ -52,7 +52,7 @@ namespace UpdateDocuments
 
 			#endregion
 
-			Tuple<List<User>, long> users = await dummyUtils.CreateUsers(
+			Tuple<List<DummyUser>, long> users = await dummyUtils.CreateUsers(
 				usersToCreate, 0, short.MaxValue, false, Stopwatch.StartNew());
 
 			Console.WriteLine("Getting all documents");

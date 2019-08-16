@@ -4,22 +4,22 @@ using Newtonsoft.Json;
 namespace ElasticSearchTester.Data.Models
 {
 	[Serializable]
-	public class CpasUserEntry
+	public class CpasUser
 	{
 		[JsonProperty(PropertyName = "oid")]
-		public readonly int Oid;
+		public readonly string Oid;
 		
 		[JsonProperty(PropertyName = "login")]
 		public readonly string Login;
 		
-		[JsonProperty(PropertyName = "fullname")]
-		public readonly string Fullname;
+		[JsonProperty(PropertyName = "role")]
+		public readonly string Role;
 
-		public CpasUserEntry(int oid, string login, string fullname)
+		public CpasUser(string oid, string login, string role)
 		{
 			Oid = oid;
 			Login = login;
-			Fullname = fullname;
+			Role = role;
 		}
 	}
 }

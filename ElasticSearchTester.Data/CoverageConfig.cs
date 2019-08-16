@@ -59,9 +59,9 @@ namespace ElasticSearchTester.Data
 
 		public static readonly Dictionary<string, decimal> UserRoles = new Dictionary<string, decimal>
 		{
-			{nameof(Roles.Employee), 0.6m},
-			{nameof(Roles.Manager), 0.125m},
-			{nameof(Roles.Admin), 0.025m},
+			{nameof(Roles.VPA), 0.6m},
+			{nameof(Roles.MS), 0.125m},
+			{nameof(Roles.RP), 0.025m},
 			// {nameof(Roles.Role1), 0.024m},
 			// {nameof(Roles.Role2), 0.024m},
 			// {nameof(Roles.Role3), 0.024m},
@@ -72,13 +72,13 @@ namespace ElasticSearchTester.Data
 			// {nameof(Roles.Role8), 0.024m},
 			// {nameof(Roles.Role9), 0.024m},
 			// {nameof(Roles.Role10), 0.024m},
-			{nameof(Roles.Hr), 0.249m},
-			{nameof(Roles.Boss), 0.001m}
+			// {nameof(Roles.Hr), 0.249m},
+			{nameof(Roles.RR), 0.001m}
 		};
 
 		public static readonly Dictionary<string, decimal> DocumentPermissions = new Dictionary<string, decimal>
 		{
-			{nameof(Roles.Employee), 0.74m},
+			{nameof(Roles.VPA), 0.74m},
 			// {nameof(Roles.Role1), 0.0120m},
 			// {nameof(Roles.Role2), 0.0120m},
 			// {nameof(Roles.Role3), 0.0120m},
@@ -89,9 +89,9 @@ namespace ElasticSearchTester.Data
 			// {nameof(Roles.Role8), 0.0120m},
 			// {nameof(Roles.Role9), 0.0120m},
 			// {nameof(Roles.Role10), 0.0120m},
-			{nameof(Roles.Hr), 0.21m},
-			{nameof(Roles.Manager), 0.04m},
-			{nameof(Roles.Boss), 0.01m}
+			{nameof(Roles.RP), 0.21m},
+			{nameof(Roles.RR), 0.04m},
+			{nameof(Roles.MS), 0.01m}
 		};
 
 		public static readonly Dictionary<string, decimal> OrganizationCoverage = new Dictionary<string, decimal>

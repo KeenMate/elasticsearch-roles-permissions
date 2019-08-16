@@ -2,12 +2,10 @@ namespace ElasticSearchTester.Data.Enums
 {
 	public enum Roles
 	{
-		Boss,
-		Manager,
-		Admin,
-		Hr,
-
-		Employee
+		MS,
+		RR,
+		RP,
+		VPA
 		// Role1,
 		// Role2,
 		// Role3,

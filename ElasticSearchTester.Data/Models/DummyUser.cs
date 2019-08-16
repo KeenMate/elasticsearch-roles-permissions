@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 namespace ElasticSearchTester.Data.Models
 {
 	[Serializable]
-	public class User
+	public class DummyUser
 	{
 		[JsonIgnore] public string Username { get; set; }
 

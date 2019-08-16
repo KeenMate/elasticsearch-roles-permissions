@@ -67,7 +67,7 @@ namespace ElasticSearchTester
 
 			Stopwatch watches = new Stopwatch();
 
-			Tuple<List<User>, long> createUsersTuple = await dummyUtils.CreateUsers(
+			Tuple<List<DummyUser>, long> createUsersTuple = await dummyUtils.CreateUsers(
 				usersToCreate,
 				usersIdOffset,
 				usersBatchSize,
@@ -193,7 +193,7 @@ namespace ElasticSearchTester
 			int idOffset,
 			int documentsBatchSize,
 			string indexName,
-			List<User> users,
+			List<DummyUser> users,
 			Stopwatch watches)
 		{
 			Console.WriteLine("Creating demo documents...");

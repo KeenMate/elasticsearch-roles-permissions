@@ -19,7 +19,7 @@ namespace ElasticSearchTester.Utils
 		{
 			if (number > items.Count)
 				throw new ArgumentOutOfRangeException(nameof(number), "Number was greater than amount of items");
-			
+
 			int returnLength = random.Next(1, number);
 			List<T> result = new List<T>();
 
@@ -39,8 +39,8 @@ namespace ElasticSearchTester.Utils
 			List<string> result = new List<string>();
 
 			Dictionary<string, decimal> remaining = options
-																							.ToList()
-																							.ToDictionary(x => x.Key, x => x.Value);
+				.ToList()
+				.ToDictionary(x => x.Key, x => x.Value);
 			for (int i = 0; i < count; i++)
 			{
 				string chosen = GetRandom(remaining);
@@ -57,7 +57,7 @@ namespace ElasticSearchTester.Utils
 		{
 			int index = random.Next(list.Count);
 			T result = default;
-			
+
 			try
 			{
 				result = list[index];
@@ -69,6 +69,19 @@ namespace ElasticSearchTester.Utils
 			}
 
 			return result;
+		}
+
+		public T GetProbabilisticRandom<T>(List<CoverageInfo<T>> items)
+		{
+			double luckyNumber = random.NextDouble();
+			IOrderedEnumerable<CoverageInfo<T>> ordered = items.OrderBy(x => x.Probability);
+			foreach (var item in ordered)
+			{
+				if (luckyNumber < item.Probability)
+					return item.Item;
+			}
+
+			return items[random.Next(items.Count)].Item;
 		}
 
 		/// <summary>
@@ -85,8 +98,8 @@ namespace ElasticSearchTester.Utils
 				chances.Add((decimal) random.NextDouble());
 
 			List<KeyValuePair<string, decimal>> orderedOptions = options
-																													 .OrderBy(pair => pair.Value)
-																													 .ToList();
+				.OrderBy(pair => pair.Value)
+				.ToList();
 
 			int j = 0;
 			foreach (var option in orderedOptions)
@@ -98,8 +111,8 @@ namespace ElasticSearchTester.Utils
 			}
 
 			return orderedOptions
-						 .Last()
-						 .Key;
+				.Last()
+				.Key;
 		}
 
 		/// <summary>
@@ -107,9 +120,9 @@ namespace ElasticSearchTester.Utils
 		/// </summary>
 		/// <param name="input"></param>
 		/// <returns></returns>
-		public double[] SoftmaxFn(decimal[] input)
+		public double[] SoftmaxFn(double[] input)
 		{
-			double Op(decimal x) => Math.Pow(Math.E, (double) x);
+			double Op(double x) => Math.Pow(Math.E, (double) x);
 
 			double[] output = new double[input.Length];
 

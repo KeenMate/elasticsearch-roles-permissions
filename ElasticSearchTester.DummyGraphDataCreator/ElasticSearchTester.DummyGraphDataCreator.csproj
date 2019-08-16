@@ -14,4 +14,19 @@
       <PackageReference Include="Flurl.Http" Version="2.4.2" />
     </ItemGroup>
 
+    <ItemGroup>
+      <None Remove="Users.csv" />
+      <Content Include="Users.csv">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <None Remove="FileNames.csv" />
+      <Content Include="FileNames.csv">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <None Remove="ReportTypes.csv" />
+      <Content Include="ReportTypes.csv">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+    </ItemGroup>
+
 </Project>

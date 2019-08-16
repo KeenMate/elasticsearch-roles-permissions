@@ -18,7 +18,7 @@ namespace ElasticSearchTester.Utils
 			this.coverage = coverage;
 		}
 		
-		public async Task<Tuple<List<User>, long>> CreateUsers(
+		public async Task<Tuple<List<DummyUser>, long>> CreateUsers(
 			int usersToCreate,
 			int idOffset,
 			int usersBatchSize,
@@ -29,17 +29,17 @@ namespace ElasticSearchTester.Utils
 
 			if (usersBatchSize == 0)
 				usersBatchSize = usersToCreate;
-			List<User> usersToReturn = new List<User>(usersToCreate);
+			List<DummyUser> usersToReturn = new List<DummyUser>(usersToCreate);
 			watches.Restart();
 			for (int i = 0; i < (int) Math.Ceiling(usersToCreate / (decimal) usersBatchSize); i++)
 			{
-				List<User> users = new List<User>(usersBatchSize);
+				List<DummyUser> users = new List<DummyUser>(usersBatchSize);
 				for (
 					int j = (i * usersBatchSize) + idOffset;
 					j < ((i + 1) * usersBatchSize) + idOffset && j < (usersToCreate + idOffset);
 					j++
 				)
-					users.Add(new User
+					users.Add(new DummyUser
 					{
 						Username = $"User{j:00000}",
 						Password = j.ToString("00000"),
@@ -66,7 +66,7 @@ namespace ElasticSearchTester.Utils
 				await request;
 			}
 
-			return new Tuple<List<User>, long>(usersToReturn, watches.ElapsedMilliseconds);
+			return new Tuple<List<DummyUser>, long>(usersToReturn, watches.ElapsedMilliseconds);
 		}
 	}
 }
